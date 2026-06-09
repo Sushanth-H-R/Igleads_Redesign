@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design Tokens ─────────────────────────────────────────── */
+:root {
+  --bg: #000000;
+  --bg-base: #000000;
+  --surface: #0F0F0F;
+  --border: #1A1A1A;
+  --teal: #00E5C0;
+  --text-primary: #F0EEE8;
+  --text-muted: #6B6A65;
+  --font-display: 'Clash Display', sans-serif;
+  --font-body: 'Satoshi', sans-serif;
+}
+
+/* ── Force background everywhere ────────────────────────────── */
+* {
+  background-color: inherit;
+  cursor: none !important;
+}
+
+html,
+body {
+  background-color: #000000 !important;
+  color: #F0EEE8;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Kill any Tailwind gray leaking through */
+.bg-gray-950, .bg-gray-900, .bg-gray-800,
+.bg-neutral-950, .bg-neutral-900, .bg-zinc-950,
+.bg-slate-950, .bg-slate-900 {
+  background-color: #000000 !important;
+}
+
+/* Every section and wrapper must be deep black */
+section,
+main,
+header,
+footer,
+div[class*="section"],
+div[class*="container"] {
+  background-color: #000000;
+}
+
+/* ── Custom Cursor ──────────────────────────────────────────── */
+* { box-sizing: border-box; }
+
+/* ── Scrollbar ──────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #000000; }
+::-webkit-scrollbar-thumb { background: #1A1A1A; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #2a2a2a; }
+
+/* ── Selection ──────────────────────────────────────────────── */
+::selection { background: rgba(0,229,192,0.25); color: #F0EEE8; }
+
+/* ── Keyframes ──────────────────────────────────────────────── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px #00E5C0; }
+  50% { opacity: 0.4; box-shadow: 0 0 4px #00E5C0; }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Utilities ──────────────────────────────────────────────── */
+.animate-pulse-dot { animation: pulse-dot 1.8s ease-in-out infinite; }
+.shimmer-row {
+  background: linear-gradient(90deg, #1A1A1A 0%, #2A2A2A 40%, #1A1A1A 80%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+  border-radius: 4px;
+}
+
+/* ── Reveal ─────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Font helpers ───────────────────────────────────────────── */
+.font-display { font-family: var(--font-display) !important; }
+.font-body    { font-family: var(--font-body) !important; }
+
+/* ── Feature Card hover ────────────────────────────────────── */
+.feature-card-anim {
+  transition: box-shadow 300ms ease, border-color 300ms ease;
+}
+.feature-card-anim:hover {
+  box-shadow: 0 0 0 1px rgba(0,229,192,0.2), 0 20px 60px -20px rgba(0,229,192,0.15) !important;
+  border-color: rgba(0,229,192,0.15) !important;
+}
