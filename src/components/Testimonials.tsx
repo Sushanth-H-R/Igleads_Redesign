@@ -159,6 +159,8 @@ export default function Testimonials() {
                   transformOrigin: "bottom center",
                   transition: "transform 550ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 350ms ease",
                   zIndex: z,
+                  background: '#000000',
+                  borderRadius: '24px',
                 }}
               >
                 <TestimonialCard t={t} i={i} lifted={lifted} />
