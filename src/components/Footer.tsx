@@ -38,8 +38,8 @@ const SocialBtn = ({ children }: { children: React.ReactNode }) => (
       transition: 'border-color 200ms ease, color 200ms ease',
     }}
     onMouseEnter={e => {
-      e.currentTarget.style.borderColor = '#00E5C0'
-      e.currentTarget.style.color = '#00E5C0'
+      e.currentTarget.style.borderColor = '#8B5CF6'
+      e.currentTarget.style.color = '#8B5CF6'
     }}
     onMouseLeave={e => {
       e.currentTarget.style.borderColor = '#2A2A35'
@@ -66,8 +66,9 @@ export default function Footer() {
           {/* Column 1 — Brand */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 600, color: '#F0EEE8' }}>
-                igleads<span style={{ color: '#00E5C0' }}>.co</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 600, color: '#F0EEE8', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <img src="/igleads-logo.svg" alt="igleads icon" style={{ height: '28px', width: 'auto' }} />
+                <span>igleads<span style={{ color: '#8B5CF6' }}>.co</span></span>
               </span>
             </div>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: '#6B6A65', lineHeight: 1.7, maxWidth: 280, marginTop: 16 }}>

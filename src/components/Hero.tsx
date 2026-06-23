@@ -79,7 +79,7 @@ export default function Hero() {
         }}
       >
         <Threads
-          color={[0, 229 / 255, 192 / 255]}
+          color={[139 / 255, 92 / 255, 246 / 255]}
           amplitude={1.2}
           distance={0}
           enableMouseInteraction={false}
@@ -114,7 +114,7 @@ export default function Hero() {
           }}
         >
           Extract Verified Leads From{' '}
-          <span style={{ color: '#00E5C0' }}>Instagram</span>
+          <span style={{ background: 'linear-gradient(135deg, #8B5CF6, #EC4899)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', color: 'transparent' }}>Instagram</span>
         </motion.h1>
 
         {/* Subhead */}
@@ -143,7 +143,7 @@ export default function Hero() {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              background: 'linear-gradient(135deg, #00C9A7 0%, #00E5C0 50%, #00B4D8 100%)',
+              background: 'linear-gradient(135deg, #8B5CF6, #EC4899)',
               color: '#000',
               fontFamily: 'var(--font-body)',
               fontWeight: 700,
@@ -156,7 +156,7 @@ export default function Hero() {
             onMouseEnter={e => {
               e.currentTarget.style.transform = 'scale(1.03)'
               e.currentTarget.style.filter = 'brightness(1.08)'
-              e.currentTarget.style.boxShadow = '0 0 32px rgba(0,229,192,0.3)'
+              e.currentTarget.style.boxShadow = '0 0 32px rgba(139,92,246,0.3)'
             }}
             onMouseLeave={e => {
               e.currentTarget.style.transform = 'scale(1)'
@@ -184,8 +184,8 @@ export default function Hero() {
               transition: 'border-color 200ms ease, color 200ms ease',
             }}
             onMouseEnter={e => {
-              e.currentTarget.style.borderColor = '#00E5C0'
-              e.currentTarget.style.color = '#00E5C0'
+              e.currentTarget.style.borderColor = '#8B5CF6'
+              e.currentTarget.style.color = '#8B5CF6'
             }}
             onMouseLeave={e => {
               e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'

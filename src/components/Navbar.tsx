@@ -43,12 +43,16 @@ export default function Navbar() {
           style={{
             fontFamily: 'var(--font-display)',
             fontWeight: 700,
-            fontSize: 18,
+            fontSize: 22,
             color: '#F0EEE8',
             textDecoration: 'none',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px'
           }}
         >
-          igleads
+          <img src="/igleads-logo.svg" alt="igleads icon" style={{ height: '32px', width: 'auto' }} />
+          <span>igleads<span style={{ color: '#8B5CF6' }}>.co</span></span>
         </a>
 
         {/* Center: Nav links */}
@@ -111,7 +115,7 @@ export default function Navbar() {
               fontSize: 14,
               fontWeight: 700,
               color: '#000000',
-              background: '#00E5C0',
+              background: 'linear-gradient(135deg, #8B5CF6, #EC4899)',
               padding: '10px 20px',
               borderRadius: 6,
               border: 'none',

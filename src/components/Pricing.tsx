@@ -5,7 +5,7 @@ import { Check } from "lucide-react"
 function Feature({ text }: { text: string }) {
   return (
     <li className="flex items-center gap-3 text-sm text-white/80">
-      <Check className="size-4" strokeWidth={3} style={{ color: '#00E5C0' }} />
+      <Check className="size-4" strokeWidth={3} style={{ color: '#8B5CF6' }} />
       {text}
     </li>
   )
@@ -28,7 +28,7 @@ const tiers: Tier[] = [
     tagline: "For solo marketers testing the waters.",
     features: ["100 emails/month", "10 credits", "Basic profile scraping", "CSV export", "Community support"],
     cta: "Start free",
-    glow: "conic-gradient(from 0deg, #00E5C0, #2DD4BF, #7B61FF, #00E5C0)",
+    glow: "conic-gradient(from 0deg, #8B5CF6, #EC4899, #7B61FF, #8B5CF6)",
   },
   {
     name: "Starter",
@@ -44,7 +44,7 @@ const tiers: Tier[] = [
     ],
     cta: "Start free trial",
     badge: "Most popular",
-    glow: "conic-gradient(from 0deg, #FF2D87, #7B61FF, #00E5C0, #FF2D87)",
+    glow: "conic-gradient(from 0deg, #FF2D87, #7B61FF, #8B5CF6, #FF2D87)",
   },
   {
     name: "Agency",
@@ -80,9 +80,9 @@ function PricingCard({ tier, featured }: { tier: Tier; featured?: boolean }) {
         style={{
           background: "var(--surface)",
           border: "1px solid var(--border)",
-          borderTop: featured ? "2px solid var(--teal)" : "1px solid var(--border)",
         }}
       >
+        {featured && <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: 'linear-gradient(135deg, #8B5CF6, #EC4899)' }} />}
         <div className="relative">
           <div className="flex items-start justify-between mb-4">
             <h3 className="font-display text-2xl font-semibold text-[#F0EEE8]">{tier.name}</h3>
@@ -103,11 +103,11 @@ function PricingCard({ tier, featured }: { tier: Tier; featured?: boolean }) {
           <button
             data-cursor="hover"
             className={`w-full h-11 rounded-md text-sm font-semibold font-body transition-transform hover:scale-[1.02] ${
-              featured ? "text-black" : "text-white/90 hover:bg-white/5"
+              featured ? "text-white" : "text-white/90 hover:bg-white/5"
             }`}
             style={
               featured
-                ? { background: "var(--teal)" }
+                ? { background: "linear-gradient(135deg, #8B5CF6, #EC4899)", border: "none" }
                 : { border: "1px solid rgba(255,255,255,0.18)", background: "transparent" }
             }
           >
@@ -130,8 +130,8 @@ export default function Pricing() {
       <div className="mx-auto max-w-6xl px-6 lg:px-12">
         <div className="text-center mb-14 reveal">
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginBottom: 16 }}>
-            <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#00E5C0' }} />
-            <span style={{ fontFamily: 'var(--font-body)', fontSize: 11, fontWeight: 500, color: '#00E5C0', letterSpacing: '0.14em', textTransform: 'uppercase' }}>
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#8B5CF6' }} />
+            <span style={{ fontFamily: 'var(--font-body)', fontSize: 11, fontWeight: 500, color: '#8B5CF6', letterSpacing: '0.14em', textTransform: 'uppercase' }}>
               PRICING
             </span>
           </div>

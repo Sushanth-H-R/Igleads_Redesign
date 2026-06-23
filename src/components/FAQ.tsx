@@ -39,8 +39,8 @@ export default function FAQ() {
       <div style={{ maxWidth: 768, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ textAlign: 'center', marginBottom: 64 }} className="reveal flex flex-col items-center">
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginBottom: 16 }}>
-            <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#00E5C0' }} />
-            <span style={{ fontFamily: 'var(--font-body)', fontSize: 11, fontWeight: 500, color: '#00E5C0', letterSpacing: '0.14em', textTransform: 'uppercase' }}>
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#8B5CF6' }} />
+            <span style={{ fontFamily: 'var(--font-body)', fontSize: 11, fontWeight: 500, color: '#8B5CF6', letterSpacing: '0.14em', textTransform: 'uppercase' }}>
               FAQ
             </span>
           </div>
@@ -53,7 +53,7 @@ export default function FAQ() {
               margin: 0,
             }}
           >
-            Questions? <span style={{ color: '#00E5C0' }}>Answers.</span>
+            Questions? <span style={{ color: '#8B5CF6' }}>Answers.</span>
           </h2>
         </div>
 
@@ -66,7 +66,7 @@ export default function FAQ() {
                 style={{
                   background: 'var(--surface)',
                   border: '1px solid',
-                  borderColor: isOpen ? '#00E5C0' : 'var(--border)',
+                  borderColor: isOpen ? '#8B5CF6' : 'var(--border)',
                   borderLeftWidth: isOpen ? 4 : 1,
                   borderRadius: 12,
                   overflow: 'hidden',
@@ -96,7 +96,7 @@ export default function FAQ() {
                     animate={{ rotate: isOpen ? 45 : 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Plus size={20} color={isOpen ? '#00E5C0' : '#6B6A65'} />
+                    <Plus size={20} color={isOpen ? '#8B5CF6' : '#6B6A65'} />
                   </motion.div>
                 </button>
                 <AnimatePresence>

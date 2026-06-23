@@ -8,7 +8,7 @@
   --bg-base: #000000;
   --surface: #0F0F0F;
   --border: #1A1A1A;
-  --teal: #00E5C0;
+  --teal: #8B5CF6;
   --text-primary: #F0EEE8;
   --text-muted: #6B6A65;
   --font-display: 'Clash Display', sans-serif;
@@ -59,12 +59,12 @@ html { scroll-behavior: smooth; }
 ::-webkit-scrollbar-thumb:hover { background: #2a2a2a; }
 
 /* ── Selection ──────────────────────────────────────────────── */
-::selection { background: rgba(0,229,192,0.25); color: #F0EEE8; }
+::selection { background: rgba(139,92,246,0.25); color: #F0EEE8; }
 
 /* ── Keyframes ──────────────────────────────────────────────── */
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1; box-shadow: 0 0 8px #00E5C0; }
-  50% { opacity: 0.4; box-shadow: 0 0 4px #00E5C0; }
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px #8B5CF6; }
+  50% { opacity: 0.4; box-shadow: 0 0 4px #8B5CF6; }
 }
 @keyframes shimmer {
   0% { background-position: -200% 0; }
@@ -108,6 +108,6 @@ html { scroll-behavior: smooth; }
   transition: box-shadow 300ms ease, border-color 300ms ease;
 }
 .feature-card-anim:hover {
-  box-shadow: 0 0 0 1px rgba(0,229,192,0.2), 0 20px 60px -20px rgba(0,229,192,0.15) !important;
-  border-color: rgba(0,229,192,0.15) !important;
+  box-shadow: 0 0 0 1px rgba(139,92,246,0.2), 0 20px 60px -20px rgba(139,92,246,0.15) !important;
+  border-color: rgba(139,92,246,0.15) !important;
 }

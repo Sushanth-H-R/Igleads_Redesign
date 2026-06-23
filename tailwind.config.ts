@@ -12,7 +12,7 @@ const config: Config = {
         bg: '#0C0C0F',
         surface: '#16161D',
         border: '#2A2A35',
-        teal: '#00E5C0',
+        teal: '#8B5CF6',
         'text-primary': '#F0EEE8',
         'text-muted': '#6B6A65',
       },

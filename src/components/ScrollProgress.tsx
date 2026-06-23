@@ -13,7 +13,7 @@ export default function ScrollProgress() {
         left: 0,
         right: 0,
         height: 2,
-        background: '#00E5C0',
+        background: 'linear-gradient(135deg, #8B5CF6, #EC4899)',
         transformOrigin: '0% 50%',
         scaleX: scrollYProgress,
         zIndex: 9999,

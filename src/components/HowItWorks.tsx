@@ -43,8 +43,8 @@ export default function HowItWorks() {
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ textAlign: 'center', marginBottom: 64 }} className="reveal">
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginBottom: 16 }}>
-            <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#00E5C0' }} />
-            <span style={{ fontFamily: 'var(--font-body)', fontSize: 11, fontWeight: 500, color: '#00E5C0', letterSpacing: '0.14em', textTransform: 'uppercase' }}>
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#8B5CF6' }} />
+            <span style={{ fontFamily: 'var(--font-body)', fontSize: 11, fontWeight: 500, color: '#8B5CF6', letterSpacing: '0.14em', textTransform: 'uppercase' }}>
               HOW IT WORKS
             </span>
           </div>
@@ -57,7 +57,7 @@ export default function HowItWorks() {
               margin: 0,
             }}
           >
-            Three steps to <span style={{ color: '#00E5C0' }}>scale.</span>
+            Three steps to <span style={{ color: '#8B5CF6' }}>scale.</span>
           </h2>
         </div>
 
@@ -104,7 +104,7 @@ export default function HowItWorks() {
                         width: 48,
                         height: 48,
                         borderRadius: '50%',
-                        background: isActive ? '#00E5C0' : '#1A1A1A',
+                        background: isActive ? '#8B5CF6' : '#1A1A1A',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -114,7 +114,7 @@ export default function HowItWorks() {
                         color: isActive ? '#000' : '#6B6A65',
                         flexShrink: 0,
                         transition: 'all 300ms ease',
-                        boxShadow: isActive ? '0 0 24px rgba(0,229,192,0.4)' : 'none',
+                        boxShadow: isActive ? '0 0 24px rgba(139,92,246,0.4)' : 'none',
                       }}
                     >
                       {step.id}
@@ -177,7 +177,7 @@ export default function HowItWorks() {
               </div>
 
               {/* Browser content */}
-              <div style={{ position: 'relative', height: 380, overflow: 'hidden' }}>
+              <div style={{ position: 'relative', aspectRatio: '16/9', overflow: 'hidden' }}>
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeStep}
@@ -194,8 +194,9 @@ export default function HowItWorks() {
                       style={{
                         width: '100%',
                         height: '100%',
-                        objectFit: 'cover',
-                        objectPosition: 'top left',
+                        objectFit: 'contain',
+                        objectPosition: 'center',
+                        backgroundColor: '#0F0F0F',
                         display: 'block',
                         borderRadius: '0 0 10px 10px',
                       }}

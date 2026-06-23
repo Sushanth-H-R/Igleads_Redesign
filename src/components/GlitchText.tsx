@@ -46,7 +46,7 @@ const GlitchText = ({
   const inlineStyles = {
     '--after-duration': `${speed * 3}s`,
     '--before-duration': `${speed * 2}s`,
-    '--after-shadow': enableShadows ? '-5px 0 #00E5C0' : 'none',
+    '--after-shadow': enableShadows ? '-5px 0 #8B5CF6' : 'none',
     '--before-shadow': enableShadows ? '5px 0 #6366F1' : 'none',
   } as React.CSSProperties
 

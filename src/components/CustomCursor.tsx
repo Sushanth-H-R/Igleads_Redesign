@@ -61,16 +61,16 @@ export default function CustomCursor() {
         width: isHovering ? 36 : 10,
         height: isHovering ? 36 : 10,
         background: isHovering ? 'transparent' : '#ffffff',
-        border: isHovering ? '1.5px solid #00E5C0' : 'none',
-        boxShadow: isHovering ? '0 0 10px rgba(0,229,192,0.4)' : 'none',
+        border: isHovering ? '1.5px solid #8B5CF6' : 'none',
+        boxShadow: isHovering ? '0 0 10px rgba(139,92,246,0.4)' : 'none',
         borderRadius: '50%',
       }}
       animate={{
         width: isHovering ? 36 : 10,
         height: isHovering ? 36 : 10,
         background: isHovering ? 'transparent' : '#ffffff',
-        border: isHovering ? '1.5px solid #00E5C0' : 'none',
-        boxShadow: isHovering ? '0 0 10px rgba(0,229,192,0.4)' : 'none',
+        border: isHovering ? '1.5px solid #8B5CF6' : 'none',
+        boxShadow: isHovering ? '0 0 10px rgba(139,92,246,0.4)' : 'none',
       }}
       transition={{ duration: 0.2, ease: 'easeOut' }}
     />
