@@ -52,14 +52,11 @@ function TestimonialCard({ t, i, style = {}, lifted = false }: any) {
       className="w-[85vw] md:w-[340px] p-8 shrink-0 snap-center relative"
       style={{
         background: "linear-gradient(180deg, #141414, #0C0C0C)",
-        backgroundClip: "padding-box",
+        border: "1px solid var(--border)",
         boxShadow: lifted
-          ? "inset 0 0 0 1px var(--border), 0 30px 80px -20px rgba(139,92,246,0.25), 0 20px 60px -20px rgba(0,0,0,0.8)"
-          : "inset 0 0 0 1px var(--border), 0 20px 60px -25px rgba(0,0,0,0.8)",
+          ? "0 30px 80px -20px rgba(139,92,246,0.25), 0 20px 60px -20px rgba(0,0,0,0.8)"
+          : "0 20px 60px -25px rgba(0,0,0,0.8)",
         borderRadius: "24px",
-        overflow: "hidden",
-        WebkitMaskImage: "-webkit-radial-gradient(white, black)",
-        transform: "translateZ(0)",
         ...style
       }}
       data-cursor="hover"
