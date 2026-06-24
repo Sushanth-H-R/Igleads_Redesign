@@ -34,7 +34,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main style={{ background: '#0C0C0F', minHeight: '100vh' }}>
+    <main style={{ background: 'var(--bg-base)', minHeight: '100vh' }}>
       <ScrollProgress />
       <Navbar />
       <Hero />

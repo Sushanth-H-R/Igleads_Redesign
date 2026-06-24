@@ -28,22 +28,22 @@ const SocialBtn = ({ children }: { children: React.ReactNode }) => (
     style={{
       width: 40,
       height: 40,
-      background: '#16161D',
-      border: '1px solid #2A2A35',
+      background: 'var(--bg-surface)',
+      border: '1px solid var(--border-color)',
       borderRadius: 8,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      color: '#6B6A65',
-      transition: 'border-color 200ms ease, color 200ms ease',
+      color: 'var(--text-muted)',
+      transition: 'border-color 200ms ease, color 200ms ease, background 300ms ease',
     }}
     onMouseEnter={e => {
       e.currentTarget.style.borderColor = '#8B5CF6'
       e.currentTarget.style.color = '#8B5CF6'
     }}
     onMouseLeave={e => {
-      e.currentTarget.style.borderColor = '#2A2A35'
-      e.currentTarget.style.color = '#6B6A65'
+      e.currentTarget.style.borderColor = 'var(--border-color)'
+      e.currentTarget.style.color = 'var(--text-muted)'
     }}
   >
     {children}
@@ -52,7 +52,7 @@ const SocialBtn = ({ children }: { children: React.ReactNode }) => (
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#0C0C0F', borderTop: '1px solid #1E1E28', padding: '80px 0 0 0' }}>
+    <footer style={{ background: 'var(--bg-surface-2)', borderTop: '1px solid var(--border-color)', padding: '80px 0 0 0', transition: 'background 300ms ease, border-color 300ms ease' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 40px' }}>
         {/* 4-column grid */}
         <div
@@ -66,19 +66,19 @@ export default function Footer() {
           {/* Column 1 — Brand */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 600, color: '#F0EEE8', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 600, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '8px', transition: 'color 200ms ease' }}>
                 <img src="/igleads-logo.svg" alt="igleads icon" style={{ height: '28px', width: 'auto' }} />
                 <span>igleads<span style={{ color: '#8B5CF6' }}>.co</span></span>
               </span>
             </div>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: '#6B6A65', lineHeight: 1.7, maxWidth: 280, marginTop: 16 }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.7, maxWidth: 280, marginTop: 16, transition: 'color 200ms ease' }}>
               Extract email addresses, phone numbers, and Instagram leads with high accuracy and speed. Build your prospect lists automatically.
             </p>
           </div>
 
           {/* Column 2 — Explore */}
           <div>
-            <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600, color: '#F0EEE8', marginBottom: 20 }}>
+            <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600, color: 'var(--text-primary)', marginBottom: 20, transition: 'color 200ms ease' }}>
               Explore
             </div>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -86,9 +86,9 @@ export default function Footer() {
                 <a
                   key={link}
                   href="#"
-                  style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: '#6B6A65', textDecoration: 'none', lineHeight: 2.2, transition: 'color 150ms ease' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#F0EEE8')}
-                  onMouseLeave={e => (e.currentTarget.style.color = '#6B6A65')}
+                  style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--text-secondary)', textDecoration: 'none', lineHeight: 2.2, transition: 'color 150ms ease' }}
+                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--text-primary)')}
+                  onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-secondary)')}
                 >
                   {link}
                 </a>
@@ -98,7 +98,7 @@ export default function Footer() {
 
           {/* Column 3 — Resources */}
           <div>
-            <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600, color: '#F0EEE8', marginBottom: 20 }}>
+            <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600, color: 'var(--text-primary)', marginBottom: 20, transition: 'color 200ms ease' }}>
               Resources
             </div>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -106,9 +106,9 @@ export default function Footer() {
                 <a
                   key={link}
                   href="#"
-                  style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: '#6B6A65', textDecoration: 'none', lineHeight: 2.2, transition: 'color 150ms ease' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#F0EEE8')}
-                  onMouseLeave={e => (e.currentTarget.style.color = '#6B6A65')}
+                  style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--text-secondary)', textDecoration: 'none', lineHeight: 2.2, transition: 'color 150ms ease' }}
+                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--text-primary)')}
+                  onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-secondary)')}
                 >
                   {link}
                 </a>
@@ -118,7 +118,7 @@ export default function Footer() {
 
           {/* Column 4 — Follow Us */}
           <div>
-            <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600, color: '#F0EEE8', marginBottom: 20 }}>
+            <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600, color: 'var(--text-primary)', marginBottom: 20, transition: 'color 200ms ease' }}>
               Follow Us
             </div>
             <div style={{ display: 'flex', gap: 12 }}>
@@ -133,16 +133,17 @@ export default function Footer() {
         <div
           style={{
             marginTop: 48,
-            borderTop: '1px solid #1E1E28',
+            borderTop: '1px solid var(--border-color)',
             padding: '24px 0',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
             flexWrap: 'wrap',
             gap: 16,
+            transition: 'border-color 300ms ease',
           }}
         >
-          <span style={{ fontFamily: 'var(--font-body)', fontSize: 13, color: '#6B6A65' }}>
+          <span style={{ fontFamily: 'var(--font-body)', fontSize: 13, color: 'var(--text-muted)', transition: 'color 200ms ease' }}>
             © {new Date().getFullYear()} igleads.co. All Rights Reserved.
           </span>
           <div style={{ display: 'flex', gap: 24 }}>
@@ -150,9 +151,9 @@ export default function Footer() {
               <a
                 key={link}
                 href="#"
-                style={{ fontFamily: 'var(--font-body)', fontSize: 13, color: '#6B6A65', textDecoration: 'none', transition: 'color 150ms ease' }}
-                onMouseEnter={e => (e.currentTarget.style.color = '#F0EEE8')}
-                onMouseLeave={e => (e.currentTarget.style.color = '#6B6A65')}
+                style={{ fontFamily: 'var(--font-body)', fontSize: 13, color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 150ms ease' }}
+                onMouseEnter={e => (e.currentTarget.style.color = 'var(--text-primary)')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-muted)')}
               >
                 {link}
               </a>

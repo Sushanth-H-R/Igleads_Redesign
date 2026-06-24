@@ -4,48 +4,56 @@
 
 /* ── Design Tokens ─────────────────────────────────────────── */
 :root {
-  --bg: #000000;
-  --bg-base: #000000;
-  --surface: #0F0F0F;
-  --border: #1A1A1A;
-  --teal: #8B5CF6;
-  --text-primary: #F0EEE8;
-  --text-muted: #6B6A65;
+  --bg-base: #F8F7FF;
+  --bg-surface: #FFFFFF;
+  --bg-surface-2: #F0EFF8;
+  --text-primary: #0F0E17;
+  --text-secondary: #4A4560;
+  --text-muted: #8B87A8;
+  --border-color: rgba(0,0,0,0.08);
+  --accent: #8B5CF6;
+  --accent-gradient: linear-gradient(135deg, #8B5CF6, #EC4899);
   --font-display: 'Clash Display', sans-serif;
   --font-body: 'Satoshi', sans-serif;
+}
+
+.dark {
+  --bg-base: #000000;
+  --bg-surface: #0F0F0F;
+  --bg-surface-2: #16161D;
+  --text-primary: #F0EEE8;
+  --text-secondary: #9B9A94;
+  --text-muted: #6B6A65;
+  --border-color: rgba(255,255,255,0.07);
+  --accent: #8B5CF6;
+  --accent-gradient: linear-gradient(135deg, #8B5CF6, #EC4899);
 }
 
 /* ── Force background everywhere ────────────────────────────── */
 * {
   background-color: inherit;
   cursor: none !important;
+  transition: background-color 300ms ease, border-color 300ms ease, color 200ms ease;
 }
 
 html,
 body {
-  background-color: #000000 !important;
-  color: #F0EEE8;
+  background-color: var(--bg-base) !important;
+  color: var(--text-primary);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-/* Kill any Tailwind gray leaking through */
-.bg-gray-950, .bg-gray-900, .bg-gray-800,
-.bg-neutral-950, .bg-neutral-900, .bg-zinc-950,
-.bg-slate-950, .bg-slate-900 {
-  background-color: #000000 !important;
-}
-
-/* Every section and wrapper must be deep black */
+/* Every section and wrapper must use base background */
 section,
 main,
 header,
 footer,
 div[class*="section"],
 div[class*="container"] {
-  background-color: #000000;
+  background-color: var(--bg-base);
 }
 
 /* ── Custom Cursor ──────────────────────────────────────────── */
@@ -54,12 +62,12 @@ div[class*="container"] {
 /* ── Scrollbar ──────────────────────────────────────────────── */
 html { scroll-behavior: smooth; }
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #000000; }
-::-webkit-scrollbar-thumb { background: #1A1A1A; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #2a2a2a; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
 /* ── Selection ──────────────────────────────────────────────── */
-::selection { background: rgba(139,92,246,0.25); color: #F0EEE8; }
+::selection { background: rgba(139,92,246,0.25); color: var(--text-primary); }
 
 /* ── Keyframes ──────────────────────────────────────────────── */
 @keyframes pulse-dot {
@@ -82,10 +90,15 @@ html { scroll-behavior: smooth; }
 /* ── Utilities ──────────────────────────────────────────────── */
 .animate-pulse-dot { animation: pulse-dot 1.8s ease-in-out infinite; }
 .shimmer-row {
-  background: linear-gradient(90deg, #1A1A1A 0%, #2A2A2A 40%, #1A1A1A 80%);
+  background: linear-gradient(90deg, var(--border-color) 0%, var(--bg-surface-2) 40%, var(--border-color) 80%);
   background-size: 200% 100%;
   animation: shimmer 1.5s linear infinite;
   border-radius: 4px;
+}
+
+/* Exclude Framer Motion animated elements from global transition */
+[style*="transform"], [data-framer-motion] {
+  transition: background-color 300ms ease, border-color 300ms ease, color 200ms ease !important;
 }
 
 /* ── Reveal ─────────────────────────────────────────────────── */

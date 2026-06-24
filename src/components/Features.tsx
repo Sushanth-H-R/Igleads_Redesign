@@ -2,74 +2,66 @@
 
 import { motion } from 'framer-motion'
 
-/* ── Premium Inline SVG Icons ─────────────────────────────── */
-const EmailIcon = () => (
+const InstagramIcon = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-    <path d="M22 6l-10 7L2 6" />
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
   </svg>
 )
 
-const TargetIcon = () => (
+const ShieldCheckIcon = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="10" />
-    <circle cx="12" cy="12" r="6" />
-    <circle cx="12" cy="12" r="2" />
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+    <polyline points="9 12 11 14 15 10" />
   </svg>
 )
 
-const DataIcon = () => (
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="3" y="3" width="18" height="18" rx="2" stroke="#8B5CF6" strokeWidth="1.5" />
-    <circle cx="6.5" cy="6.5" r="1" fill="#8B5CF6" opacity="0.4" />
-    <circle cx="17.5" cy="6.5" r="1" fill="#8B5CF6" opacity="0.4" />
-    <circle cx="6.5" cy="17.5" r="1" fill="#8B5CF6" opacity="0.4" />
-    <circle cx="17.5" cy="17.5" r="1" fill="#8B5CF6" opacity="0.4" />
+const FilterIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
   </svg>
 )
 
-const LightningIcon = () => (
+const CodeIcon = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M13 2L4.5 13H12l-1 9L20 11h-8l1-9z" />
+    <polyline points="16 18 22 12 16 6" />
+    <polyline points="8 6 2 12 8 18" />
   </svg>
 )
 
 const features = [
   {
-    icon: EmailIcon,
-    title: 'Profile Scraping',
-    desc: 'Extract bios, follower counts, emails, and post stats from any public profile at scale. Stop clicking manually.',
-    stat: 'Up to 500 profiles per run',
+    icon: InstagramIcon,
+    title: 'Instagram Profile Extraction',
+    desc: 'Extract public email addresses, phone numbers, bios, follower counts, and categories from any Instagram account, hashtag, or post.',
   },
   {
-    icon: TargetIcon,
-    title: 'Hashtag Mining',
-    desc: 'Find everyone posting under any hashtag. Discover niche audiences before your competitors even wake up.',
-    stat: 'Any public hashtag',
+    icon: ShieldCheckIcon,
+    title: 'Real-time Email Verification',
+    desc: 'Every email found is validated automatically. We verify domain MX records and SMTP connections to keep bounce rates under 3%.',
   },
   {
-    icon: DataIcon,
-    title: 'One-Click Export',
-    desc: 'Download clean CSV, Excel, or JSON files. Pre-formatted perfectly for Mailchimp, HubSpot, or Salesforce.',
-    stat: 'CSV · XLS · JSON',
+    icon: FilterIcon,
+    title: 'Category & Follower Filters',
+    desc: 'Filter extracted profiles based on business categories, follower size, post count, keywords in bio, or specific location targets.',
   },
   {
-    icon: LightningIcon,
-    title: 'Fast & Reliable',
-    desc: 'Consistent results at scale. Anti-block architecture, 99.2% uptime, and an average scrape in under 3 minutes.',
-    stat: 'Avg: 2m 47s per job',
+    icon: CodeIcon,
+    title: 'Developer API Access',
+    desc: 'Trigger Instagram scrape tasks programmatically using our developer REST API and stream results into your CRM with webhooks.',
   },
 ]
 
 export default function Features() {
   return (
-    <section id="features" style={{ padding: '120px 0', background: '#000000', outline: 'none' }}>
+    <section id="features" style={{ padding: '120px 0', background: 'var(--bg-base)', outline: 'none', transition: 'background 300ms ease' }}>
       <div className="mx-auto max-w-6xl px-6 lg:px-12">
         <div style={{ textAlign: 'center', marginBottom: 64 }} className="reveal">
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginBottom: 16 }}>
             <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#8B5CF6' }} />
             <span style={{ fontFamily: 'var(--font-body)', fontSize: 11, fontWeight: 500, color: '#8B5CF6', letterSpacing: '0.14em', textTransform: 'uppercase' }}>
-              WHAT YOU GET
+              GDPR &amp; CCPA COMPLIANT
             </span>
           </div>
           <h2
@@ -77,14 +69,26 @@ export default function Features() {
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(40px, 5vw, 56px)',
               fontWeight: 700,
-              color: '#F0EEE8',
-              margin: 0,
+              color: 'var(--text-primary)',
+              margin: '0 0 24px 0',
               lineHeight: 1.1,
             }}
           >
-            Everything{' '}
-            <span style={{ color: '#8B5CF6' }}>you need.</span>
+            Designed for Outreach,<br />
+            <span style={{ color: '#8B5CF6' }}>Built for Scale</span>
           </h2>
+          <p
+             style={{
+               fontFamily: 'var(--font-body)',
+               fontSize: 18,
+               color: 'var(--text-secondary)',
+               lineHeight: 1.6,
+               maxWidth: 700,
+               margin: '0 auto'
+             }}
+          >
+            Stop copy-pasting contacts manually. Extract thousands of verified email addresses and phone numbers in seconds and launch your Instagram outbound campaigns.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -98,17 +102,18 @@ export default function Features() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: i * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
                 data-cursor="hover"
-                className="group relative overflow-hidden"
+                className="group relative overflow-hidden feature-card-anim"
                 style={{
-                  background: 'linear-gradient(180deg, #111111 0%, #080808 100%)',
+                  background: 'var(--bg-surface)',
                   borderRadius: 24,
                   padding: '48px 40px',
-                  border: '1px solid rgba(255,255,255,0.06)',
-                  boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.05)',
+                  border: '1px solid var(--border-color)',
+                  boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.04)',
+                  transition: 'background 300ms ease, border-color 300ms ease',
                 }}
               >
                 {/* Subtle hover gradient background */}
-                <div 
+                <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{
                     background: 'radial-gradient(circle at 50% 0%, rgba(139,92,246,0.08) 0%, transparent 60%)'
@@ -137,7 +142,7 @@ export default function Features() {
                       fontFamily: 'var(--font-display)',
                       fontSize: 26,
                       fontWeight: 600,
-                      color: '#F0EEE8',
+                      color: 'var(--text-primary)',
                       marginBottom: 12,
                     }}
                   >
@@ -147,29 +152,13 @@ export default function Features() {
                     style={{
                       fontFamily: 'var(--font-body)',
                       fontSize: 16,
-                      color: '#8A8985',
+                      color: 'var(--text-secondary)',
                       lineHeight: 1.6,
-                      marginBottom: 24,
+                      marginBottom: 0,
                     }}
                   >
                     {feature.desc}
                   </p>
-                  <div
-                    style={{
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: 13,
-                      fontWeight: 500,
-                      color: '#8B5CF6',
-                      borderTop: '1px solid rgba(255,255,255,0.08)',
-                      paddingTop: 16,
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      letterSpacing: '0.02em',
-                    }}
-                  >
-                    <span style={{ width: 4, height: 4, borderRadius: '50%', background: '#8B5CF6', marginRight: 8, opacity: 0.6 }} />
-                    {feature.stat}
-                  </div>
                 </div>
               </motion.div>
             )

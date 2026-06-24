@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { useInView } from 'framer-motion'
+import { useTheme } from 'next-themes'
 
 function useCountUp(target: number, decimals = 0, duration = 2000) {
   const [count, setCount] = useState(0)
@@ -52,11 +53,12 @@ function Stat({
     <div ref={ref} style={{ textAlign: 'center' }}>
       <div
         style={{
-          fontFamily: 'var(--font-syne)',
+          fontFamily: 'var(--font-display)',
           fontSize: 'clamp(36px, 4vw, 48px)',
           fontWeight: 700,
-          color: '#F0EEE8',
+          color: 'var(--text-primary)',
           lineHeight: 1,
+          transition: 'color 200ms ease',
         }}
       >
         {isStatic ? '< 3 min' : `${prefix ?? ''}${count}${suffix ?? ''}`}
@@ -64,9 +66,10 @@ function Stat({
       <div
         style={{
           fontSize: 13,
-          color: '#6B6A65',
+          color: 'var(--text-muted)',
           marginTop: 8,
           letterSpacing: '0.04em',
+          transition: 'color 200ms ease',
         }}
       >
         {label}
@@ -86,15 +89,26 @@ const badges = [
 ]
 
 export default function SocialProofBar() {
+  const { theme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => { setMounted(true) }, [])
+  const isDark = !mounted || theme === 'dark'
+
+  const barBg = isDark ? '#111116' : 'var(--bg-surface-2)'
+  const dividerColor = isDark ? '#2A2A35' : 'rgba(0,0,0,0.1)'
+  const badgeBg = isDark ? '#16161D' : 'var(--bg-surface)'
+  const badgeBorder = isDark ? '#2A2A35' : 'var(--border-color)'
+
   return (
     <section
       id="social-proof"
       style={{
-        background: '#111116',
-        borderTop: '1px solid #1E1E28',
-        borderBottom: '1px solid #1E1E28',
+        background: barBg,
+        borderTop: '1px solid var(--border-color)',
+        borderBottom: '1px solid var(--border-color)',
         padding: '56px 0',
         overflow: 'hidden',
+        transition: 'background 300ms ease, border-color 300ms ease',
       }}
     >
       {/* Trusted by label */}
@@ -102,10 +116,11 @@ export default function SocialProofBar() {
         style={{
           textAlign: 'center',
           fontSize: 13,
-          color: '#6B6A65',
+          color: 'var(--text-muted)',
           letterSpacing: '0.06em',
           textTransform: 'uppercase',
           marginBottom: 36,
+          transition: 'color 200ms ease',
         }}
       >
         Trusted by 5,000+ marketers, agencies &amp; e-commerce brands
@@ -122,9 +137,9 @@ export default function SocialProofBar() {
         }}
       >
         <Stat value={12} suffix="M+" label="profiles scraped" />
-        <div style={{ width: 1, height: 48, background: '#2A2A35' }} />
+        <div style={{ width: 1, height: 48, background: dividerColor, transition: 'background 300ms ease' }} />
         <Stat value={99.2} suffix="%" label="uptime" decimals={1} />
-        <div style={{ width: 1, height: 48, background: '#2A2A35' }} />
+        <div style={{ width: 1, height: 48, background: dividerColor, transition: 'background 300ms ease' }} />
         <Stat value={0} label="avg scrape time" isStatic />
       </div>
 
@@ -138,13 +153,14 @@ export default function SocialProofBar() {
             <span
               key={i}
               style={{
-                background: '#16161D',
-                border: '1px solid #2A2A35',
+                background: badgeBg,
+                border: `1px solid ${badgeBorder}`,
                 borderRadius: 999,
                 padding: '6px 16px',
                 fontSize: 12,
-                color: '#6B6A65',
+                color: 'var(--text-muted)',
                 whiteSpace: 'nowrap',
+                transition: 'background 300ms ease, border-color 300ms ease, color 200ms ease',
               }}
             >
               {badge}

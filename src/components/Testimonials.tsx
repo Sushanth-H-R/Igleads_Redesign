@@ -51,29 +51,30 @@ function TestimonialCard({ t, i, style = {}, lifted = false }: any) {
     <article
       className="w-[85vw] md:w-[340px] p-8 shrink-0 snap-center relative"
       style={{
-        background: "linear-gradient(180deg, #141414, #0C0C0C)",
-        border: "1px solid var(--border)",
+        background: "var(--bg-surface)",
+        border: "1px solid var(--border-color)",
         boxShadow: lifted
-          ? "0 30px 80px -20px rgba(139,92,246,0.25), 0 20px 60px -20px rgba(0,0,0,0.8)"
-          : "0 20px 60px -25px rgba(0,0,0,0.8)",
+          ? "0 30px 80px -20px rgba(139,92,246,0.25), 0 20px 60px -20px rgba(0,0,0,0.3)"
+          : "0 20px 60px -25px rgba(0,0,0,0.15)",
         borderRadius: "24px",
+        transition: "background 300ms ease, border-color 300ms ease",
         ...style
       }}
       data-cursor="hover"
     >
       <div style={{ paddingBottom: '24px' }}>
         <div className="flex items-start justify-between mb-6">
-          <Quote className="size-8" style={{ color: "var(--teal)" }} fill="currentColor" />
+          <Quote className="size-8" style={{ color: "#8B5CF6" }} fill="currentColor" />
           <div className="flex gap-1">
             {Array.from({ length: 5 }).map((_, s) => (
-              <Star key={s} className="size-4" style={{ color: 'var(--teal)' }} fill="currentColor" />
+              <Star key={s} className="size-4" style={{ color: '#8B5CF6' }} fill="currentColor" />
             ))}
           </div>
         </div>
-        <p className="text-base text-white/85 leading-relaxed min-h-[96px] font-body">
+        <p className="text-base leading-relaxed min-h-[96px] font-body" style={{ color: 'var(--text-secondary)' }}>
           {t.quote}
         </p>
-        <hr className="my-6 border-white/10" />
+        <hr className="my-6" style={{ borderColor: 'var(--border-color)' }} />
         <div className="flex items-center gap-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -82,17 +83,18 @@ function TestimonialCard({ t, i, style = {}, lifted = false }: any) {
             width={48}
             height={48}
             loading="lazy"
-            className="size-12 rounded-full object-cover ring-1 ring-white/10"
+            className="size-12 rounded-full object-cover"
+            style={{ boxShadow: '0 0 0 1px var(--border-color)' }}
           />
           <div>
-            <p className="text-[15px] font-semibold text-[#F0EEE8] font-body">{t.name}</p>
-            <p className="text-[13px] text-white/45 font-body">{t.role}</p>
+            <p className="text-[15px] font-semibold font-body" style={{ color: 'var(--text-primary)' }}>{t.name}</p>
+            <p className="text-[13px] font-body" style={{ color: 'var(--text-muted)' }}>{t.role}</p>
           </div>
         </div>
 
         <span
-          className="absolute bottom-4 right-5 text-xs tracking-[0.2em] uppercase text-white/25"
-          style={{ fontFamily: "var(--font-display)" }}
+          className="absolute bottom-4 right-5 text-xs tracking-[0.2em] uppercase"
+          style={{ fontFamily: "var(--font-display)", color: 'var(--border-color)' }}
         >
           0{i + 1}
         </span>
@@ -106,7 +108,7 @@ export default function Testimonials() {
   const [hoverIdx, setHoverIdx] = useState<number | null>(null)
 
   return (
-    <section id="testimonials" style={{ padding: '80px 0', background: '#000000' }}>
+    <section id="testimonials" style={{ padding: '80px 0', background: 'var(--bg-base)', transition: 'background 300ms ease' }}>
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <div className="text-center mb-16 reveal">
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginBottom: 16 }}>
@@ -120,7 +122,7 @@ export default function Testimonials() {
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(32px, 4vw, 48px)',
               fontWeight: 700,
-              color: '#F0EEE8',
+              color: 'var(--text-primary)',
               margin: 0,
             }}
           >
@@ -133,19 +135,29 @@ export default function Testimonials() {
         <div
           className="hidden md:flex relative h-[500px] items-center justify-center reveal select-none"
           style={{ perspective: "1400px" }}
-          onMouseEnter={() => setOpen(true)}
-          onMouseLeave={() => {
-            setOpen(false)
-            setHoverIdx(null)
-          }}
         >
-          {data.map((t, i) => {
+          {/* Interaction wrapper that strictly covers the cards area */}
+          <div
+            onMouseEnter={() => setOpen(true)}
+            onMouseLeave={() => {
+              setOpen(false)
+              setHoverIdx(null)
+            }}
+            className="relative flex items-center justify-center"
+            style={{
+              width: open ? 1180 : 384,
+              maxWidth: "100%",
+              height: 400,
+              transition: "width 600ms cubic-bezier(0.22, 1, 0.36, 1)",
+            }}
+          >
+            {data.map((t, i) => {
             const rot = open ? fanRot[i] : stackRot[i]
             const x = open ? fanX[i] : stackX[i]
             const y = open ? fanY[i] : stackY[i]
             const lifted = hoverIdx === i
             const z = lifted ? 50 : open ? i : 10 - Math.abs(i - 2)
-            
+
             return (
               <div
                 key={i}
@@ -157,9 +169,9 @@ export default function Testimonials() {
                     lifted ? rot * 0.4 : rot
                   }deg) scale(${lifted ? 1.05 : 1})`,
                   transformOrigin: "bottom center",
-                  transition: "transform 550ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 350ms ease",
+                  transition: "transform 600ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 300ms ease",
                   zIndex: z,
-                  background: '#000000',
+                  background: 'var(--bg-surface)',
                   borderRadius: '24px',
                 }}
               >
@@ -167,6 +179,7 @@ export default function Testimonials() {
               </div>
             )
           })}
+          </div>
         </div>
 
         {/* Mobile Horizontal Scroll */}

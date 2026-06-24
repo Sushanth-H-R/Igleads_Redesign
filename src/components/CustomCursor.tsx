@@ -2,10 +2,17 @@
 
 import { useEffect, useState } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
+import { useTheme } from 'next-themes'
 
 export default function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
+  const { theme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => { setMounted(true) }, [])
+  const isDark = !mounted || theme === 'dark'
+
+  const dotColor = isDark ? '#ffffff' : '#0F0E17'
 
   const mouseX = useMotionValue(-100)
   const mouseY = useMotionValue(-100)
@@ -60,7 +67,7 @@ export default function CustomCursor() {
         translateY: '-50%',
         width: isHovering ? 36 : 10,
         height: isHovering ? 36 : 10,
-        background: isHovering ? 'transparent' : '#ffffff',
+        background: isHovering ? 'transparent' : dotColor,
         border: isHovering ? '1.5px solid #8B5CF6' : 'none',
         boxShadow: isHovering ? '0 0 10px rgba(139,92,246,0.4)' : 'none',
         borderRadius: '50%',
@@ -68,7 +75,7 @@ export default function CustomCursor() {
       animate={{
         width: isHovering ? 36 : 10,
         height: isHovering ? 36 : 10,
-        background: isHovering ? 'transparent' : '#ffffff',
+        background: isHovering ? 'transparent' : dotColor,
         border: isHovering ? '1.5px solid #8B5CF6' : 'none',
         boxShadow: isHovering ? '0 0 10px rgba(139,92,246,0.4)' : 'none',
       }}

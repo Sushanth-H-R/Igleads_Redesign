@@ -3,6 +3,7 @@ import { JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import CustomCursor from '@/components/CustomCursor'
 import LenisScroller from '@/components/LenisScroller'
+import { ThemeProvider } from 'next-themes'
 
 const geistMono = JetBrains_Mono({
   subsets: ['latin'],
@@ -35,9 +36,11 @@ export default function RootLayout({
         <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
       </head>
       <body>
-        <CustomCursor />
-        <LenisScroller />
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <CustomCursor />
+          <LenisScroller />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )

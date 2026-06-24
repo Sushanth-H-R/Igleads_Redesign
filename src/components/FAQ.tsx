@@ -35,7 +35,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section id="faq" style={{ padding: '80px 0', background: '#000000' }}>
+    <section id="faq" style={{ padding: '80px 0', background: 'var(--bg-base)', transition: 'background 300ms ease' }}>
       <div style={{ maxWidth: 768, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ textAlign: 'center', marginBottom: 64 }} className="reveal flex flex-col items-center">
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginBottom: 16 }}>
@@ -49,7 +49,7 @@ export default function FAQ() {
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(32px, 4vw, 48px)',
               fontWeight: 700,
-              color: '#F0EEE8',
+              color: 'var(--text-primary)',
               margin: 0,
             }}
           >
@@ -64,13 +64,13 @@ export default function FAQ() {
               <div
                 key={i}
                 style={{
-                  background: 'var(--surface)',
+                  background: 'var(--bg-surface)',
                   border: '1px solid',
-                  borderColor: isOpen ? '#8B5CF6' : 'var(--border)',
+                  borderColor: isOpen ? '#8B5CF6' : 'var(--border-color)',
                   borderLeftWidth: isOpen ? 4 : 1,
                   borderRadius: 12,
                   overflow: 'hidden',
-                  transition: 'border-color 200ms ease, border-left-width 200ms ease'
+                  transition: 'border-color 200ms ease, border-left-width 200ms ease, background 300ms ease',
                 }}
               >
                 <button
@@ -85,7 +85,7 @@ export default function FAQ() {
                     background: 'transparent',
                     border: 'none',
                     textAlign: 'left',
-                    color: '#F0EEE8',
+                    color: 'var(--text-primary)',
                     fontFamily: 'var(--font-body)',
                     fontSize: 16,
                     fontWeight: 600,
@@ -96,7 +96,7 @@ export default function FAQ() {
                     animate={{ rotate: isOpen ? 45 : 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Plus size={20} color={isOpen ? '#8B5CF6' : '#6B6A65'} />
+                    <Plus size={20} color={isOpen ? '#8B5CF6' : 'var(--text-muted)'} />
                   </motion.div>
                 </button>
                 <AnimatePresence>
@@ -110,7 +110,7 @@ export default function FAQ() {
                       <div
                         style={{
                           padding: '0 24px 24px 24px',
-                          color: '#6B6A65',
+                          color: 'var(--text-secondary)',
                           fontSize: 15,
                           lineHeight: 1.6,
                           fontFamily: 'var(--font-body)',
